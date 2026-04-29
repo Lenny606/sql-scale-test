@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  # Hlavní databáze
+  primary-db:
+    image: postgres:15
+    container_name: primary-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: scaling_test
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d # Automaticky spustí SQL skripty
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5' # Omezení výkonu pro simulaci zátěže
+          memory: 512M
+
+  # Administrační rozhraní pro prohlížení dat (volitelné)
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"

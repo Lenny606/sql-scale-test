@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "sql-scale-test"
+version = "0.1.0"
+description = "SQL scaling test and performance benchmarking"
+authors = ["Tomas"]
+package-mode = false
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sqlalchemy = "^2.0.49"
+psycopg2-binary = "^2.9.12"
+python-dotenv = "^1.2.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

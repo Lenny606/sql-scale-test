@@ -22,6 +22,6 @@ with open('comments.csv', 'w', newline='') as f:
             random.randint(1, num_posts), # Náhodné ID příspěvku
             random.randint(1, num_users), # Náhodné ID uživatele
             fake.sentence(),              # Text komentáře
-            fake.date_this_minute()       # Čas
+            fake.date_this_month()       # Čas
         ])
 print("CSV soubory vygenerovány!")

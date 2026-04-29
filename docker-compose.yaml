@@ -13,7 +13,7 @@ services:
     networks:
       - sql-test-net
     volumes:
-      - ./init:/docker-entrypoint-initdb.d # Automaticky spustí SQL skripty
+      - ./db-init:/docker-entrypoint-initdb.d # Automaticky spustí SQL skripty
     deploy:
       resources:
         limits:
